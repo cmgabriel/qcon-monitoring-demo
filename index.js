@@ -1,7 +1,7 @@
-require('./tracing.js');
+// require('./tracing.js');
 const express = require('express');
 const got = require('got');
-const slshttp = require('serverless-http')
+const slshttp = require('serverless-http');
 
 const WEATHER_API_URL = 'https://weather.node-congress.workshop.epsagon.com/weather';
 const NEWS_API_URL = 'https://news.node-congress.workshop.epsagon.com/news';
@@ -38,7 +38,7 @@ app.get('/digest/:city', async (req, res) => {
 app.use('*', (req, res) => {
     res.status(404).send('Not Found');
 })
-//app.listen(3000, () => console.log('App is now online at port 3000'));
+app.listen(3000, () => console.log('App is now online at port 3000'));
 
 module.exports.handler = slshttp(app)
 
